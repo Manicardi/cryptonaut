@@ -43,6 +43,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'level' => 1,
             'experience' => 0,
+            'points' => 1,
             'coin' => 0,
             'energy' => 0,
             'energy_limit' => 100,

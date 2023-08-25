@@ -23,6 +23,7 @@ return new class extends Migration
 
             $table->bigInteger('level');
             $table->bigInteger('experience');
+            $table->bigInteger('points');
             $table->bigInteger('coin');
             $table->bigInteger('energy');
             $table->bigInteger('energy_limit');

@@ -43,6 +43,7 @@ class GameController extends Controller
     public function checkLevel(Request $request) {
         if((($request->user()->level * 10) + 100) == $request->user()->experience) {
             $request->user()->level += 1;
+            $request->user()->points += 1;
             $request->user()->experience = 0;
         };
     }

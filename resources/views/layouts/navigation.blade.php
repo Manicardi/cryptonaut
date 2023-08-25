@@ -26,11 +26,11 @@
                             {{ __('Energy') }}
                         </x-nav-link>
                     </div>
-                    {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('points')" :active="request()->routeIs('points')">
                             {{ __('Points') }}
                         </x-nav-link>
-                    </div> --}}
+                    </div>
                     {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('task')" :active="request()->routeIs('task')">
                             {{ __('Task') }}
@@ -163,11 +163,11 @@
                         </x-responsive-nav-link>
                     </div>
 
-                    {{-- <div class="mt-0 space-y-1">
+                    <div class="mt-0 space-y-1">
                         <x-responsive-nav-link :href="route('points')">
                             {{ __('Points') }}
                         </x-responsive-nav-link>
-                    </div> --}}
+                    </div>
 
                     {{-- <div class="mt-0 space-y-1">
                         <x-responsive-nav-link :href="route('task')">
