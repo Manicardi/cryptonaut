@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'CryptonautCoin'),
+    'name' => env('APP_NAME', 'Cryptonaut'),
 
     /*
     |--------------------------------------------------------------------------

@@ -128,7 +128,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'CryptonautCoin'), '_').'_session'
+        Str::slug(env('APP_NAME', 'Cryptonaut'), '_').'_session'
     ),
 
     /*
