@@ -44,7 +44,7 @@
     <div class="flex justify-center mt-2 px-0 sm:items-center sm:justify-between">
         <div class="ml-6 text-center text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0" style="font-size: 0.5em;">
             <div class="text-center">CONTACTS</div> <br /> 
-            SUPPORT@cryptonaut.cc
+            support@cryptonaut.cc
         </div>
 
         <div class="ml-6 text-center text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0" style="font-size: 0.5em;">
