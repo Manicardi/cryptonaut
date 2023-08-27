@@ -42,6 +42,10 @@
                 background-image: url({{ asset('images/space-sky.png') }});
             }
 
+            .font-small-small {
+                font-size: .6rem
+            }
+
             .font-small {
                 font-size: .7rem
             }
