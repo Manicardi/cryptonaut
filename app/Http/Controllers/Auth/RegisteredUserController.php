@@ -49,6 +49,8 @@ class RegisteredUserController extends Controller
             'energy_limit' => 100,
             'travel_start_at' => now()->subMinutes(5),
             'energy_collect_at' => now(),
+            'travel_point' => 0,
+            'energy_point' => 0,
         ]);
 
         event(new Registered($user));

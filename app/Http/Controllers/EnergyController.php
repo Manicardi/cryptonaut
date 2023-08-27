@@ -17,13 +17,13 @@ class EnergyController extends Controller
     {
         return view('energy', [
             'user' => $request->user(),
-            'energyTime' => EnergyController::getEnergyAvailable($request),
+            'energyTime' => Self::getEnergyAvailable($request),
         ]);
     }
 
     public function collect(Request $request)
     {
-        $request->user()->energy += EnergyController::getEnergyAvailable($request);
+        $request->user()->energy += Self::getEnergyAvailable($request);
         $request->user()->energy_collect_at = now();
         $request->user()->save();
 

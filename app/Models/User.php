@@ -30,6 +30,8 @@ class User extends Authenticatable
         'energy_limit',
         'travel_start_at',
         'energy_collect_at',
+        'travel_point',
+        'energy_point',
     ];
 
     /**
@@ -57,5 +59,7 @@ class User extends Authenticatable
         'energy_limit' => 'double',
         'travel_start_at' => 'datetime',
         'energy_collect_at' => 'datetime',
+        'travel_point' => 'double',
+        'energy_point' => 'double',
     ];
 }

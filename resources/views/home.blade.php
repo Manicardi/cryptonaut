@@ -14,41 +14,11 @@
     </x-slot>
     @auth
         <!-- Page Login Content -->
-        {{-- <main>
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="mt-16 main">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white font-big">
-                                    Geral Stats 
-                                </h2>
-                                <div class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Level: {{ Auth::user()->level }}
-                                </div>
-                                <div class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Experience: {{ Auth::user()->experience . '/' . (Auth::user()->level * 10) + 100 }}
-                                </div>
-                                <div class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Coin: {{ Auth::user()->coin }}
-                                </div>
-                                <div class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Energy: {{ Auth::user()->energy }}
-                                </div>
-                                <div class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Points: {{ Auth::user()->points }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main> --}}
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg">
+        <div class="max-w-7xl mx-auto p-6 lg:p-8">
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-1 lg:gap-1">
+                <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white font-big">
+                        <h2 class="text-xl font-semibold text-gray-900 dark:text-white font-big">
                             Geral Stats 
                         </h2>
                         <div class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">

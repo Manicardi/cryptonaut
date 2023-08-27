@@ -94,6 +94,8 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(PointsController::class)->group(function () {
         Route::get('/points', 'get')->name('points');
+        Route::post('/add-travel', 'addTravel')->name('addTravel');
+        Route::post('/add-energy', 'addEnergy')->name('addEnergy');
     });
 
     Route::controller(TaskController::class)->group(function () {

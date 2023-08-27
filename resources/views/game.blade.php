@@ -7,6 +7,7 @@
                     {{ 'Exp:' . Auth::user()->experience . '/' . (Auth::user()->level * 10) + 100 }}
                     {{ 'Coins:' . Auth::user()->coin }}
                     {{ 'Energy:' . Auth::user()->energy }}
+                    {{ 'Points:' . Auth::user()->points }}
                 </div>
             @endauth
         </h2>
@@ -16,14 +17,22 @@
         <div class="grid grid-cols-1 md:grid-cols-1 gap-1 lg:gap-1">
             <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Start the travel") }}
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white font-big">
+                        Start the travel
+                    </h2>   
                     <img src="{{ asset('images/rocket-side.png') }}" alt="Cryptonaut" width="300px">
-                    <form method="post" action="{{ route('travel') }}" class="space-y-6">
+                    <form method="post" action="{{ route('travel') }}">
                         @csrf
                         @method('post')
-                            Energy:<span style="color: red;">-{{ $energy }}</span><br />
-                            Reward:<span style="color: green;">+{{ $reward }}</span>
-                        <div class="flex items-center gap-4">
+                            {{-- Energy:<span style="color: red;">-{{ $energy }}</span><br /> --}}
+                            {{-- Reward:<span style="color: green;">+{{ $reward }}</span> --}}
+                            <div class="dark:focus:ring-offset-gray-800 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2 focus:outline-none text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                Energy:<span style="color: red;">-{{ $energy }}</span>
+                            </div>
+                            <div class="dark:focus:ring-offset-gray-800 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2 focus:outline-none text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                Reward:<span style="color: green;">+{{ $reward }}</span>
+                            </div>
+                        <div class="flex items-center gap-4 mt-4">
                             <x-primary-button disabled style="opacity: 40%" id="submitButton">{{ __('Travel') }}</x-primary-button>
                         </div>
                         <input type="hidden" id="clock" value="{{ $timeLeft }}" />
@@ -84,7 +93,7 @@
                 $('#submitButton').css('opacity', '100');
                 $('#submitButton').prop('disabled', false);
             }   
-        }, 3000);
+        }, 2000);
     }
 
     freeButton();

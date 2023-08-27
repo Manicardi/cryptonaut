@@ -30,9 +30,9 @@ class GameController extends Controller
             $request->user()->coin += 10;
             $request->user()->energy -= 10;
 
-            $request->user()->travel_start_at = now();
+            $request->user()->travel_start_at = now()->subSeconds($request->user()->travel_point * 2);
 
-            GameController::checkLevel($request);
+            Self::checkLevel($request);
 
             $request->user()->save();
 

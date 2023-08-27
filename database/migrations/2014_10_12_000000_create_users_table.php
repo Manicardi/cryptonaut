@@ -30,6 +30,9 @@ return new class extends Migration
 
             $table->dateTime('travel_start_at');
             $table->dateTime('energy_collect_at');
+
+            $table->bigInteger('travel_point');
+            $table->bigInteger('energy_point');
         });
     }
 

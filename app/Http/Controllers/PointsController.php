@@ -18,6 +18,29 @@ class PointsController extends Controller
             'user' => $request->user(),
         ]);
     }
+
+    public function addTravel(Request $request) {
+        if($request->user()->points >= 1 && $request->user()->travel_point < 30) {
+            $request->user()->points -= 1;
+            $request->user()->travel_point += 1;
+
+            $request->user()->save();
+        }
+
+        return redirect()->route('points');
+    }
+
+    public function addEnergy(Request $request) {
+        if($request->user()->points > 0 && $request->user()->energy_point < 30) {
+            $request->user()->points -= 1;
+            $request->user()->energy_point += 1;
+            $request->user()->energy_limit += 10;    
+
+            $request->user()->save();
+        }
+
+        return redirect()->route('points');
+    }
     // /**
     //  * Display the user's profile form.
     //  */

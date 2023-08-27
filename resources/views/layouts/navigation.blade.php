@@ -35,13 +35,13 @@
                         <x-nav-link :href="route('task')" :active="request()->routeIs('task')">
                             {{ __('Task') }}
                         </x-nav-link>
-                    </div> --}}
-                    {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('store')" :active="request()->routeIs('store')">
                             {{ __('Store') }}
                         </x-nav-link>
-                    </div> --}}
-                    {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('market')" :active="request()->routeIs('market')">
                             {{ __('Market') }}
                         </x-nav-link>
@@ -72,13 +72,13 @@
 
                             {{-- <x-dropdown-link :href="route('leaderboard')">
                                 {{ __('Leaderboard') }}
-                            </x-dropdown-link> --}}
+                            </x-dropdown-link>
 
-                            {{-- <x-dropdown-link :href="route('referrals')">
+                            <x-dropdown-link :href="route('referrals')">
                                 {{ __('Referrals') }}
-                            </x-dropdown-link> --}}
+                            </x-dropdown-link>
 
-                            {{-- <x-dropdown-link :href="route('finance')">
+                            <x-dropdown-link :href="route('finance')">
                                 {{ __('Finance') }}
                             </x-dropdown-link> --}}
 
