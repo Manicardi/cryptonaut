@@ -45,7 +45,7 @@
                         @csrf
                         @method('put')
                         <div class="flex items-center gap-4 mt-4">
-                            <x-primary-button style="opacity: 40%" id="skipButton">{{ __('Skip -2 Coin') }}</x-primary-button>
+                            <x-primary-button style="opacity: 40%" disabled id="skipButton">{{ __('Skip -2 Coin') }}</x-primary-button>
                         </div>
                     </form>
                 </div>
