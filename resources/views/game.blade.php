@@ -38,6 +38,7 @@
                         </div>
                         <input type="hidden" id="clock" value="{{ $timeLeft }}" />
                         <input type="hidden" id="energy" value="{{ Auth::user()->energy }}" />
+                        <input type="hidden" id="coin" value="{{ Auth::user()->coin }}" />
                         <input type="hidden" id="travelEnergy" value="{{ Auth::user()->travel_energy }}" />
                     </form>
 
@@ -56,6 +57,7 @@
 
 <script>
     var energy = $('#energy');
+    var coin = $('#coin');
     var travelEnergy = $('#travelEnergy');
 
     function getTimeRemaining(endtime) {
@@ -96,7 +98,7 @@
     initializeClock('clock', deadline);
 
     function freeSkipButton() {
-        if(parseInt(energy.val().trim()) >= 2) {
+        if(parseInt(coin.val().trim()) >= 2) {
             $('#skipButton').css('opacity', '100');
             $('#skipButton').prop('disabled', false);
         }   
