@@ -31,9 +31,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::name('')->group(function () {
-    Route::get('/', function () { 
-        return view('home');
-    })->name('/');
+    Route::get('/', [HomeController::class, 'get'])->name('/');
 
     Route::get('/about', function () {
         return view('footer.about');
@@ -75,6 +73,10 @@ Route::middleware('guest')->group(function () {
         Route::get('/forgot-password', 'create')->name('password.request');
         Route::post('/forgot-password', 'store')->name('password.email');
     });
+
+    Route::controller(ReferralsController::class)->group(function () {
+        Route::get('/referral/{id}', 'newReferral')->name('newRefferal')->where('id', '[0-9]{6}+');
+    });
 });
 
 Route::middleware('auth')->group(function () {
@@ -85,6 +87,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(GameController::class)->group(function () {
         Route::get('/game', 'get')->name('game');
         Route::post('/travel', 'travel')->name('travel');
+        Route::put('/skip-travel', 'skipTravel')->name('skipTravel');
     });
 
     Route::controller(EnergyController::class)->group(function () {

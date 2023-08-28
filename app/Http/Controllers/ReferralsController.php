@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Referral;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +15,17 @@ class ReferralsController extends Controller
 
     public function get(Request $request): View
     {
+        $referrals = Referral::where('referral_id', $request->user()->id)->get();
+        
         return view('referrals', [
-            'user' => $request->user(),
+            'referrals' => $referrals,
+        ]);
+    }
+
+    public function newReferral(Request $request): View
+    {
+        return view('auth.register', [
+            'referral' => $request->id,
         ]);
     }
     // /**

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Referral;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -23,9 +25,11 @@ class EnergyController extends Controller
 
     public function collect(Request $request)
     {
-        $request->user()->energy += Self::getEnergyAvailable($request);
+        $energyAvailable = Self::getEnergyAvailable($request);
+        $request->user()->energy += $energyAvailable;
         $request->user()->energy_collect_at = now();
         $request->user()->save();
+        Self::getEnergyReferral($request, $energyAvailable);
 
         return redirect()->route('energy');
     }
@@ -42,6 +46,17 @@ class EnergyController extends Controller
         }
         return $mins;
     }
+
+    public function getEnergyReferral(Request $request, $energyAvailable) {
+        $referred = Referral::where('user_id', $request->user()->id)->first();
+        if($referred) {
+            $userReferred = User::where('id', $referred->id)->first();
+            $userReferred->energy += ceil($energyAvailable * 0.1);
+            $userReferred->save();
+        }
+    }
+
+
     // /**
     //  * Display the user's profile form.
     //  */

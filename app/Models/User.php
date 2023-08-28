@@ -32,6 +32,9 @@ class User extends Authenticatable
         'energy_collect_at',
         'travel_point',
         'energy_point',
+        'travel_coin',
+        'travel_time',
+        'travel_energy',
     ];
 
     /**
@@ -61,5 +64,8 @@ class User extends Authenticatable
         'energy_collect_at' => 'datetime',
         'travel_point' => 'double',
         'energy_point' => 'double',
+        'travel_coin' => 'double',
+        'travel_time' => 'double',
+        'travel_energy' => 'double',
     ];
 }

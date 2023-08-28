@@ -24,19 +24,29 @@
                     <form method="post" action="{{ route('travel') }}">
                         @csrf
                         @method('post')
-                            {{-- Energy:<span style="color: red;">-{{ $energy }}</span><br /> --}}
-                            {{-- Reward:<span style="color: green;">+{{ $reward }}</span> --}}
-                            <div class="dark:focus:ring-offset-gray-800 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2 focus:outline-none text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Energy:<span style="color: red;">-{{ $energy }}</span>
-                            </div>
-                            <div class="dark:focus:ring-offset-gray-800 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2 focus:outline-none text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Reward:<span style="color: green;">+{{ $reward }}</span>
-                            </div>
+                        <div class="dark:focus:ring-offset-gray-800 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2 focus:outline-none text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                            Exp:<span style="color: green;">+10</span>
+                        </div>
+                        <div class="dark:focus:ring-offset-gray-800 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2 focus:outline-none text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                            Coin:<span style="color: green;">+{{ Auth::user()->travel_coin }}</span>
+                        </div>
+                        <div class="dark:focus:ring-offset-gray-800 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2 focus:outline-none text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                            Energy:<span style="color: red;">-{{ Auth::user()->travel_energy }}</span>
+                        </div>
                         <div class="flex items-center gap-4 mt-4">
                             <x-primary-button disabled style="opacity: 40%" id="submitButton">{{ __('Travel') }}</x-primary-button>
                         </div>
                         <input type="hidden" id="clock" value="{{ $timeLeft }}" />
                         <input type="hidden" id="energy" value="{{ Auth::user()->energy }}" />
+                        <input type="hidden" id="travelEnergy" value="{{ Auth::user()->travel_energy }}" />
+                    </form>
+
+                    <form method="post" action="{{ route('skipTravel') }}">
+                        @csrf
+                        @method('put')
+                        <div class="flex items-center gap-4 mt-4">
+                            <x-primary-button style="opacity: 40%" id="skipButton">{{ __('Skip -2 Coin') }}</x-primary-button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -46,6 +56,7 @@
 
 <script>
     var energy = $('#energy');
+    var travelEnergy = $('#travelEnergy');
 
     function getTimeRemaining(endtime) {
         var date = new Date().toLocaleString("en-US", {timeZone: "UTC"});
@@ -66,8 +77,10 @@
             var t = getTimeRemaining(endtime);
             $('#submitButton').text(('0' + t.minutes).slice(-2) + ':' + ('0' + t.seconds).slice(-2));
             if (t.total <= 0) {
-                if(parseInt(energy.val().trim()) >= 10) {
+                if(parseInt(energy.val().trim()) >= parseInt(travelEnergy.val().trim())) {
                     $('#submitButton').text('Travel');
+                    $('#submitButton').css('opacity', '100');
+                    $('#submitButton').prop('disabled', false);
                     clearInterval(timeinterval);
                 } else {
                     $('#submitButton').text('Insufficient energy');
@@ -78,23 +91,16 @@
         var timeinterval = setInterval(updateClock, 1000);
     }
 
-    // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
     var deadline = $('#clock').val();
 
     initializeClock('clock', deadline);
 
-    
-    
-    
-
-    function freeButton(id, endtime) {
-        setTimeout(function() {
-            if($('#submitButton').text().trim() == 'Travel') {
-                $('#submitButton').css('opacity', '100');
-                $('#submitButton').prop('disabled', false);
-            }   
-        }, 2000);
+    function freeSkipButton() {
+        if(parseInt(energy.val().trim()) >= 2) {
+            $('#skipButton').css('opacity', '100');
+            $('#skipButton').prop('disabled', false);
+        }   
     }
 
-    freeButton();
+    freeSkipButton();
 </script>

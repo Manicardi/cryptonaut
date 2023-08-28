@@ -56,6 +56,7 @@
                             {{ __('Register') }}
                         </x-primary-button>
                     </div>
+                    <input type="hidden" name="referral" value="{{ $referral }}">
                 </form>
             </div>
         </div>

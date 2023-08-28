@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name', 15)->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
@@ -33,6 +33,10 @@ return new class extends Migration
 
             $table->bigInteger('travel_point');
             $table->bigInteger('energy_point');
+
+            $table->bigInteger('travel_coin');
+            $table->bigInteger('travel_time');
+            $table->bigInteger('travel_energy');
         });
     }
 

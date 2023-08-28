@@ -72,13 +72,13 @@
 
                             {{-- <x-dropdown-link :href="route('leaderboard')">
                                 {{ __('Leaderboard') }}
-                            </x-dropdown-link>
+                            </x-dropdown-link> --}}
 
                             <x-dropdown-link :href="route('referrals')">
                                 {{ __('Referrals') }}
                             </x-dropdown-link>
 
-                            <x-dropdown-link :href="route('finance')">
+                            {{-- <x-dropdown-link :href="route('finance')">
                                 {{ __('Finance') }}
                             </x-dropdown-link> --}}
 
@@ -204,11 +204,11 @@
                     </x-responsive-nav-link>
                 </div> --}}
 
-                {{-- <div class="mt-0 space-y-1">
+                <div class="mt-0 space-y-1">
                     <x-responsive-nav-link :href="route('referrals')">
                         {{ __('Referrals') }}
                     </x-responsive-nav-link>
-                </div> --}}
+                </div>
 
                 {{-- <div class="mt-0 space-y-1">
                     <x-responsive-nav-link :href="route('finance')">

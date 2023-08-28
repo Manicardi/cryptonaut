@@ -61,6 +61,10 @@
             .align-center {
                 text-align: center;
             }
+
+            .margin-auto {
+                margin: auto;
+            }
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     </head>
