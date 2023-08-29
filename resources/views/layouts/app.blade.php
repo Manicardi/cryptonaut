@@ -93,3 +93,9 @@
         </div>
     </body>
 </html>
+
+<script>
+    $('form').submit(function(){
+        $('button').prop('disabled', true);
+    })
+</script>

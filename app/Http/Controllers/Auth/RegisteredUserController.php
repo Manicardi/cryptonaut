@@ -52,14 +52,15 @@ class RegisteredUserController extends Controller
             'points' => 1,
             'coin' => 0,
             'energy' => 0,
-            'energy_limit' => 100,
-            'travel_start_at' => now()->subMinutes(5),
+            'energy_limit' => 1000,
+            'travel_start_at' => now()->subMinutes(15),
             'energy_collect_at' => now(),
             'travel_point' => 0,
             'energy_point' => 0,
             'travel_coin' => $mission[0],
             'travel_time' => $mission[1],
             'travel_energy' => $mission[2],
+            'total_travel' => 0,
         ]);
 
         event(new Registered($user));
@@ -78,6 +79,7 @@ class RegisteredUserController extends Controller
                     'name' => $user->name,
                     'created_at' => now(),
                     'referral_id' => $referralUser->id,
+                    'referral_name' => $referralUser->name,
                 ]);
                 $referralUser->save();
                 $user->save();

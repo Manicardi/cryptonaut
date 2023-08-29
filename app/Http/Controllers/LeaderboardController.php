@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Referral;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,8 +16,15 @@ class LeaderboardController extends Controller
 
     public function get(Request $request): View
     {
+        $levelList = User::orderBy('level', 'desc')->orderBy('experience', 'desc')->limit(100)->get();
+        $travelList = User::orderBy('total_travel', 'desc')->limit(100)->get();
+        $referralList = Referral::groupBy('referral_name')->orderBy(\DB::raw('count(referral_name)'), 'DESC')->limit(100)->get(['referral_name', \DB::raw('count(referral_name) as count')]);
+
         return view('leaderboard', [
             'user' => $request->user(),
+            'levelList' => $levelList,
+            'travelList' => $travelList,
+            'referralList' => $referralList,
         ]);
     }
     // /**

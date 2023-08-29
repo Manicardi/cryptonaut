@@ -8,14 +8,14 @@
 
     <div class="mt-6">
         <x-input-label for="name" :value="__('Name')" />
-        <h2 class="text-lg font-small text-gray-900 dark:text-gray-100 uppercase">
+        <h2 class="text-lg font-small text-gray-900 dark:text-gray-100">
             {{ Auth::user()->name }}
         </h2>
     </div>
 
     <div class="mt-6">
         <x-input-label for="email" :value="__('Email')" />
-        <h2 class="text-lg font-small text-gray-900 dark:text-gray-100 uppercase">
+        <h2 class="text-lg font-small text-gray-900 dark:text-gray-100">
             {{ Auth::user()->email }}
         </h2>
     </div>

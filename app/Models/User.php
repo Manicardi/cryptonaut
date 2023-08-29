@@ -35,6 +35,7 @@ class User extends Authenticatable
         'travel_coin',
         'travel_time',
         'travel_energy',
+        'total_travel',
     ];
 
     /**
@@ -67,5 +68,6 @@ class User extends Authenticatable
         'travel_coin' => 'double',
         'travel_time' => 'double',
         'travel_energy' => 'double',
+        'total_travel' => 'double',
     ];
 }

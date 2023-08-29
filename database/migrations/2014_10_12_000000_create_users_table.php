@@ -27,16 +27,14 @@ return new class extends Migration
             $table->bigInteger('coin');
             $table->bigInteger('energy');
             $table->bigInteger('energy_limit');
-
             $table->dateTime('travel_start_at');
             $table->dateTime('energy_collect_at');
-
             $table->bigInteger('travel_point');
             $table->bigInteger('energy_point');
-
             $table->bigInteger('travel_coin');
             $table->bigInteger('travel_time');
             $table->bigInteger('travel_energy');
+            $table->bigInteger('total_travel');
         });
     }
 

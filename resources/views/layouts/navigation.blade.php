@@ -54,7 +54,7 @@
                         <x-slot name="trigger">
                             <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                                 <div>
-                                    <p class="uppercase">{{ Auth::user()->name }}</p>
+                                    <p>{{ Auth::user()->name }}</p>
                                     Level:{{ Auth::user()->level }}
                                 </div>
                                 <div class="ml-1">
@@ -70,9 +70,9 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
-                            {{-- <x-dropdown-link :href="route('leaderboard')">
+                            <x-dropdown-link :href="route('leaderboard')">
                                 {{ __('Leaderboard') }}
-                            </x-dropdown-link> --}}
+                            </x-dropdown-link>
 
                             <x-dropdown-link :href="route('referrals')">
                                 {{ __('Referrals') }}
@@ -137,7 +137,7 @@
             <!-- Responsive Settings Options -->
             <div class="pt-0 pb-4 border-t border-gray-200 dark:border-gray-600">
                 <div class="px-4">
-                    <div class="font-medium text-base text-gray-800 dark:text-gray-200 uppercase">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
                     <div class="font-medium text-sm text-gray-500">{{ 'Level:' . Auth::user()->level }}</div>
                 </div>
             </div>
@@ -198,11 +198,11 @@
                     </x-responsive-nav-link>
                 </div>
 
-                {{-- <div class="mt-0 space-y-1">
+                <div class="mt-0 space-y-1">
                     <x-responsive-nav-link :href="route('leaderboard')">
                         {{ __('Leaderboard') }}
                     </x-responsive-nav-link>
-                </div> --}}
+                </div>
 
                 <div class="mt-0 space-y-1">
                     <x-responsive-nav-link :href="route('referrals')">

@@ -34,7 +34,7 @@ class PointsController extends Controller
         if($request->user()->points > 0 && $request->user()->energy_point < 30) {
             $request->user()->points -= 1;
             $request->user()->energy_point += 1;
-            $request->user()->energy_limit += 10;    
+            $request->user()->energy_limit += 100;    
 
             $request->user()->save();
         }

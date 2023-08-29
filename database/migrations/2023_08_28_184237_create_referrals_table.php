@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->bigInteger('referral_id');
             $table->dateTime('created_at');
+            $table->string('referral_name');
         });
     }
 

@@ -23,15 +23,15 @@ class GameController extends Controller
 
     public function travel(Request $request)
     {
-        if($request->user()->energy >= 10 && Carbon::parse($request->user()->travel_start_at)->diffInMinutes(now(), true) >= 5) {
+        if($request->user()->energy >= $request->user()->travel_energy && Carbon::parse($request->user()->travel_start_at)->diffInMinutes(now(), true) >= $request->user()->travel_time) {
             $request->user()->experience += 10;
             $request->user()->coin += $request->user()->travel_coin;
             $request->user()->energy -= $request->user()->travel_energy;
-
+            $request->user()->travel_start_at = now()->subSeconds($request->user()->travel_point * 20);
+            $request->user()->total_travel += 1;
             Self::travels($request);
             Self::checkLevel($request);
-
-            $request->user()->travel_start_at = now()->subSeconds($request->user()->travel_point * 2);
+            
 
             $request->user()->save();
 
@@ -40,9 +40,9 @@ class GameController extends Controller
     }
 
     public function skipTravel(Request $request) {
-        if($request->user()->coin >= 2) {
+        if($request->user()->coin >= 20) {
             $request->user()->travel_start_at = now()->subSeconds($request->user()->travel_point * 2);
-            $request->user()->coin -= 2;
+            $request->user()->coin -= 20;
             Self::travels($request);
             $request->user()->save();
         }
@@ -50,7 +50,7 @@ class GameController extends Controller
     }
 
     public function checkLevel(Request $request) {
-        if((($request->user()->level * 10) + 100) == $request->user()->experience) {
+        if((($request->user()->level * 10) + 100) <= $request->user()->experience) {
             $request->user()->level += 1;
             $request->user()->points += 1;
             $request->user()->experience = 0;
@@ -69,21 +69,21 @@ class GameController extends Controller
     static public function getMission($mission) {
         $missionStats = [];
         if($mission == 1) {
-            $missionStats[0] = 5;
+            $missionStats[0] = 50;
             $missionStats[1] = 5;
-            $missionStats[2] = 10;
+            $missionStats[2] = 100;
         } else if($mission == 2) {
-            $missionStats[0] = 7;
+            $missionStats[0] = 70;
             $missionStats[1] = 8;
-            $missionStats[2] = 20;
+            $missionStats[2] = 240;
         } else if($mission == 3) {
-            $missionStats[0] = 10;
+            $missionStats[0] = 100;
             $missionStats[1] = 12;
-            $missionStats[2] = 30;
+            $missionStats[2] = 480;
         } else {
-            $missionStats[0] = 12;
+            $missionStats[0] = 120;
             $missionStats[1] = 15;
-            $missionStats[2] = 40;
+            $missionStats[2] = 750;
         }
         
         return $missionStats;

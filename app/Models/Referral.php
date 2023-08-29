@@ -20,6 +20,7 @@ class Referral extends Model//extends Authenticatable
         'name',
         'created_at',
         'referral_id',
+        'referral_name',
     ];
 
     protected $casts = [
@@ -27,6 +28,7 @@ class Referral extends Model//extends Authenticatable
         'name' => 'string',
         'created_at' => 'datetime',
         'referral_id' => 'double',
+        'referral_name' => 'string',
     ];
 
     // static public function create($request) {

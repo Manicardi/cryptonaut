@@ -39,10 +39,10 @@ class EnergyController extends Controller
         $now = now();
 
         $mins = $date->diffInMinutes($now, true);
-        if($mins * 2 >= $request->user()->energy_limit) {
+        if($mins * 20 >= $request->user()->energy_limit) {
             $mins = $request->user()->energy_limit;
         } else {
-            $mins *= 2;
+            $mins *= 20;
         }
         return $mins;
     }

@@ -46,7 +46,7 @@
                         @csrf
                         @method('put')
                         <div class="flex items-center gap-4 mt-4">
-                            <x-primary-button style="opacity: 40%" disabled id="skipButton">{{ __('Skip -2 Coin') }}</x-primary-button>
+                            <x-primary-button style="opacity: 40%" disabled id="skipButton">{{ __('Skip -20 Coin') }}</x-primary-button>
                         </div>
                     </form>
                 </div>
@@ -98,7 +98,7 @@
     initializeClock('clock', deadline);
 
     function freeSkipButton() {
-        if(parseInt(coin.val().trim()) >= 2) {
+        if(parseInt(coin.val().trim()) >= 20) {
             $('#skipButton').css('opacity', '100');
             $('#skipButton').prop('disabled', false);
         }   
