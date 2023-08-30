@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WithdrawRequest;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,9 +15,30 @@ class FinanceController extends Controller
 
     public function get(Request $request): View
     {
+        $withdrawRequests = WithdrawRequest::where('user_id', $request->user()->id)->orderBy('created_at', 'desc')->get();
+
         return view('finance', [
             'user' => $request->user(),
+            'withdrawRequests' => $withdrawRequests,
         ]);
+    }
+
+    public function requestWithdraw(Request $request)
+    {
+        if($request->user()->coin >= 50000) {
+
+            WithdrawRequest::create([
+                'user_id' => $request->user()->id,
+                'amount' => $request->user()->coin,
+                'wallet' => $request->user()->wallet,
+                'processed' => false,
+                'created_at' => now(),
+            ]);
+
+            $request->user()->coin = 0;
+            $request->user()->save();
+        }
+        return redirect()->route('finance');
     }
     // /**
     //  * Display the user's profile form.

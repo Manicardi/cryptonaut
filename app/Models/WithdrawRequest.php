@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 
-class Referral extends Model
+class WithdrawRequest extends Model
 {
     use HasApiTokens;
 
@@ -13,18 +13,18 @@ class Referral extends Model
 
     protected $fillable = [
         'user_id',
-        'name',
+        'amount',
+        'wallet',
+        'processed',
         'created_at',
-        'referral_id',
-        'referral_name',
     ];
 
     protected $casts = [
         'user_id' => 'double',
-        'name' => 'string',
+        'amount' => 'double',
+        'wallet' => 'string',
+        'processed' => 'boolean',
         'created_at' => 'datetime',
-        'referral_id' => 'double',
-        'referral_name' => 'string',
     ];
 
 }

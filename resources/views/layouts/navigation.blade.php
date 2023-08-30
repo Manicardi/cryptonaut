@@ -78,9 +78,9 @@
                                 {{ __('Referrals') }}
                             </x-dropdown-link>
 
-                            {{-- <x-dropdown-link :href="route('finance')">
+                            <x-dropdown-link :href="route('finance')">
                                 {{ __('Finance') }}
-                            </x-dropdown-link> --}}
+                            </x-dropdown-link>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
@@ -210,11 +210,11 @@
                     </x-responsive-nav-link>
                 </div>
 
-                {{-- <div class="mt-0 space-y-1">
+                <div class="mt-0 space-y-1">
                     <x-responsive-nav-link :href="route('finance')">
                         {{ __('Finance') }}
                     </x-responsive-nav-link>
-                </div> --}}
+                </div>
 
                 <div class="mt-0 space-y-1">
                 <!-- Authentication -->

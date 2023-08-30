@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <br />
-                <img src="{{ url(URL::asset('images/cryptonaut-thinking.png')) }}" alt="description of myimage" height="150x" width="150px">
+                <img src="{{ url(URL::asset('images/cryptonaut-thinking.gif')) }}" alt="description of myimage" height="150x" width="150px">
 
                 <div class="mt-16 main">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

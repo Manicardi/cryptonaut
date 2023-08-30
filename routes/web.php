@@ -132,6 +132,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(FinanceController::class)->group(function () {
         Route::get('/finance', 'get')->name('finance');
+        Route::post('/request-withdraw', 'requestWithdraw')->name('requestWithdraw');
     });
 });
 
